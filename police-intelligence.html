@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--<link rel="stylesheet" href="css/normalize.css">-->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/police-intelligence.css">
+
+	<script src="js/jquery-1.12.0.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/Chart.js"></script>
+	<script src="js/Chart.min.js"></script>
+</head>
+
+<title>The Daily Exchange</title>
+
+<body>	
+	<div id="header">
+		<div id="title" class="col-md-7">
+			<a href="index.html"><img src="TheDailyExchange_logo.png"></a>
+		</div>
+
+		<div id="menu" class="col-md-5">
+			<ul class="list-unstyled"><li><h1>
+				<a href="amusements.html" target="_self">Amusements</a> |
+				<a href="notices.html" target="_self">Notices</a> | 
+				<a href="telegrams.html" target="_self">Telegrams</a> |
+				<a href="police-intelligence.html" class="current" target="_self">Police Intelligence</a> |
+				<a href="books.html" target="_self">Books</a>
+			     |
+			    <a class="button" href="#pop-up" style="color:OrangeRed;">?</a>
+  		</h1></li></ul>
+  	</div>
+
+    <div id="pop-up" class="overlay">
+      <div class="answer">
+		<div class="content"><h2>Printed newspapers are becoming an anachronism in the age of digital newsfeed, and most newspapers have shifted their focus on to the web. My degree project, The Daily Exchange, is the namesake of an 1800s Baltimore newspaper, and a semester-long process of mimicking that shift. </br></br>The Daily Exchange was chosen as the source of content due to its relatively impartial reporting and thus reflection of life in Baltimore during the mid-1800s. It ran from 1858 to 1861, and it began as a publication that was highly critical of The Know-Nothing Party who strongly opposed the presence of immigrants, particularly in political offices and competition for jobs.</h2>
+         <h3>Site set in <a href="https://www.google.com/fonts/specimen/Lora" target="_blank">Lora</a>. Built with <a href="http://okfoc.us/okzoom/" target="_blank">OKZoom</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="http://www.chartjs.org/" target="_blank">Chart.js</a>, and <a href="https://www.mapbox.com/" target="_blank">Mapbox</a>.
+         </br>Site designed by <a href="http://jennifer-juang.com" target="_blank">Jennifer Juang</a>. You can e-mail her at jjuang@mica.edu.</h3></h3>
+          <a class="close" href="#">&times;</a>
+        </div>
+      </div>
+    </div>
+  	</div id="header">
+
+	<div id="crime-charts" class="col-md-12">
+		<h3><mark>Crime Charts</mark></h3>
+		<h3>The following data, compiled from the records of the Criminal Court, will show the amount of business disposed of in that tribunal for the year 1858:
+		</h3>
+	</div id="content-row1">
+
+	<div id="content-row2" class="col-md-12">
+		<div id="canvas-holder1">
+			<canvas id="chart-area1" width="300" height="300"/>
+					<script>
+				var doughnutData1 = [
+				/*cycle 1 of colors*/
+						{
+							value: 91,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Assaults, common"
+						},
+						{
+							value: 7,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Assaults officers"
+						},
+						{
+							value: 15,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Assaults with intent to kill"
+						},
+						{
+							value: 6,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Assaulting wives"
+						},
+						{
+							value: 2,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Assaults with intent to commit rape"
+						},
+				/*cycle 2 of colors*/
+						{
+							value: 6,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Arson"
+						},
+						{
+							value: 2,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Attempted arson"
+						},
+						{
+							value: 3,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Burglary"
+						},
+						{
+							value: 8,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Breaking in windows and doors"
+						},
+						{
+							value: 2,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Corruption as magistrate"
+						},
+				/*cycle 3 of colors*/
+						{
+							value: 1,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Disturbing public worship"
+						},
+						{
+							value: 2,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Exposing person"
+						},
+						{
+							value: 1,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Highway robbery"
+						},
+						{
+							value: 4,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Inquisitions of lunacy"
+						},
+						{
+							value: 7,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Keeping disorderly houses"
+						},	
+				/*cycle 4 of colors*/			
+						{
+							value: 3,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Keeping bawdy houses"
+						},
+						{
+							value: 1,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Keeping gambling houses"
+						},
+						{
+							value: 1,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Kidnapping"
+							
+						},
+						{
+							value: 19,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Larceny"
+						},
+						{
+							value: 2,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Murder"
+						},	
+				/*cycle 5 of colors*/			
+						{
+							value: 1,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Mocking police officer"
+						},
+						{
+							value: 3,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Obtaining goods under false pretences"
+						},
+						{
+							value: 12,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Rioting"
+							
+						},
+						{
+							value: 11,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Resisting officers"
+						},
+						{
+							value: 1,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Rescuing prisoner"
+						},
+				/*cycle 6 of colors*/			
+						{
+							value: 2,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Receiving stolen goods"
+						},
+						{
+							value: 1,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Robbery"
+						},
+						{
+							value: 8,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Selling linquor on Sunday"
+							
+						},
+						{
+							value: 1,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Street appeal cases"
+						},
+						{
+							value: 16,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Appeals from magistrates"
+						}		
+					];
+					</script>
+				</canvas>
+			<h3><center>January Term, 239 cases</h3></center>
+		</div>
+
+		<div id="canvas-holder2">
+			<canvas id="chart-area2" width="300" height="300"/>
+					<script>
+				var doughnutData2 = [
+				/*cycle 1 of colors*/
+						{
+							value: 47,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Assaults, common"
+						},
+						{
+							value: 8,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Assaults officers"
+						},
+						{
+							value: 3,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Assaults with intent to kill"
+						},
+						{
+							value: 4,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Assaulting wives"
+						},
+						{
+							value: 4,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Arson"
+						},
+				/*cycle 2 of colors*/
+						{
+							value: 3,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Burglary"
+						},
+						{
+							value: 1,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Bastardy"
+						},
+						{
+							value: 1,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Cruelty to animals"
+						},
+						{
+							value: 1,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Enticing seamen from vessel"
+						},
+						{
+							value: 4,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Exposing person"
+						},
+				/*cycle 3 of colors*/
+						{
+							value: 2,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Forgery"
+						},
+						{
+							value: 3,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Highway robbery"
+						},
+						{
+							value: 2,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Habeas corpus"
+						},
+						{
+							value: 2,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Inquisitions of lunacy"
+						},
+						{
+							value: 1,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Keeping disorderly houses"
+						},	
+				/*cycle 4 of colors*/			
+						{
+							value: 2,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Keeping bawdy houses"
+						},
+						{
+							value: 8,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Larceny"
+						},
+						{
+							value: 2,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Murder"
+							
+						},
+						{
+							value: 1,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Nuisance"
+						},
+						{
+							value: 1,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Obtaining goods under false pretences"
+						},	
+				/*cycle 5 of colors*/			
+						{
+							value: 5,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Rioting"
+						},
+						{
+							value: 11,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Resisting officers"
+						},
+						{
+							value: 1,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Rape"
+							
+						},
+						{
+							value: 6,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Selling liquor without license"
+						},
+						{
+							value: 61,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Appeals from magistrates"
+						}
+					];
+					</script>
+				</canvas>
+			<h3><center>May Term, 184 cases</h3></center>
+		</div>
+
+		<div id="canvas-holder3">
+			<canvas id="chart-area3" width="300" height="300"/>
+					<script>
+					var doughnutData3 = [
+				/*cycle 1 of colors*/
+						{
+							value: 179,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Assaults, common"
+						},
+						{
+							value: 20,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Assaults officers"
+						},
+						{
+							value: 16,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Assaults with intent to kill"
+						},
+						{
+							value: 13,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Assaulting wives"
+						},
+						{
+							value: 1,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Assaults with intent to commit rape"
+						},
+				/*cycle 2 of colors*/
+						{
+							value: 2,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Arson"
+						},
+						{
+							value: 8,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Breaking in windows and doors"
+						},
+						{
+							value: 2,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Bastardy"
+						},
+						{
+							value: 1,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Cruelty to animals"
+						},
+						{
+							value: 1,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Disturbing public worship"
+						},
+				/*cycle 3 of colors*/
+						{
+							value: 4,
+							color:"#F7464A",
+							highlight: "#FF5A5E",
+							label: "Exposing person"
+						},
+						{
+							value: 1,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Habeas corpus"
+						},
+						{
+							value: 2,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Inquisitions of lunacy"
+						},
+						{
+							value: 1,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Insulting females"
+						},
+						{
+							value: 6,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Keeping disorderly houses"
+						},	
+				/*cycle 4 of colors*/			
+						{
+							value: 1,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Keeping gambling houses"
+						},
+						{
+							value: 26,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Larceny"
+						},
+						{
+							value: 4,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Murder"
+							
+						},
+						{
+							value: 2,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Obtaining goods under false pretences"
+						},
+						{
+							value: 18,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Rioting"
+						},	
+				/*cycle 5 of colors*/			
+						{
+							value: 25,
+							color: "#F7464A",
+							highlight: "#FF5A5E",
+							label: "Resisting officers"
+						},
+						{
+							value: 4,
+							color: "#46BFBD",
+							highlight: "#5AD3D1",
+							label: "Robbery"
+						},
+						{
+							value: 1,
+							color: "#FDB45C",
+							highlight: "#FFC870",
+							label: "Rogue and vagabond"
+							
+						},
+						{
+							value: 1,
+							color: "#949FB1",
+							highlight: "#A8B3C5",
+							label: "Selling liquor on Sunday"
+						},
+						{
+							value: 47,
+							color: "#4D5360",
+							highlight: "#616774",
+							label: "Selling liquor without license"
+						}
+					];
+					</script>
+				</canvas>
+			<h3><center>September Term, 386 cases</h3></center>
+		</div>
+	</div>
+	
+			<script>
+		window.onload = function(){
+			var ctx = document.getElementById("chart-area1").getContext("2d");
+			window.myDoughnut = new Chart(ctx).Doughnut(doughnutData1, {responsive : true});
+			var ctx = document.getElementById("chart-area2").getContext("2d");
+			window.myDoughnut = new Chart(ctx).Doughnut(doughnutData2, {responsive : true});
+			var ctx = document.getElementById("chart-area3").getContext("2d");      
+			window.myDoughnut = new Chart(ctx).Doughnut(doughnutData3, {responsive : true});
+		};
+			</script>
+
+	<div id="top-news" class="col-md-6">
+		<h3><mark>Top News</mark></h3>
+	</div>
+
+	<div id="news1-img" class="col-md-12"><center><img src="img/accident1.png"></center></div>
+
+	<div id="content-row3">
+		<div id="blank" class="col-md-3"></div>
+		<div id="news1" class="col-md-6">
+			<h4><b>Horrible Accident</h4></b>
+			<h3>A most horrible accident occurred on Monday evening last, at the residence of Dr. Dennis J. McKew, No. 154 Street &mdash; A little daughter of that gentleman, about six years of age, named Victoria Elizabeth McKew, took one of the camphene lamps during the absence of the family from the room, and entering the back room, mounted herself upon a chair and attempted to light the gas, and in so doing knocked off the top of the lamp. The fluid poured out over her entire person, and was instantly ignited, setting fire to her clothing, and burning her in a terrible manner before her screams were heard by the members of the family. Her mother hearing her cries for help ran to her assistance and finally succeeded in extinguishing the flames. She was attended by her distressed father and Dr. Miltenberger, who did everything in their power to alleviate her sufferings, but without avail, as she died on Wednesday morning in convulsions, after lingering in intense agony for thirty-six hours. Mrs. McKew in endeavoring to extinguish the flames was badly burned about the hands and arms.</h3>
+		</div>
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+
+		<div id="news2-img" class="col-md-12"><center><img src="img/accident2.png"></center></div>
+		<div id="blank" class="col-md-3"></div>
+		<div id="news2" class="col-md-6">
+			<h4><b>Depressing Accident</b></h4>
+			<h3>An interesting little son of Mr. John Peach met with an accident yesterday, which terminated fatally. He attempted to jump on one of the cars while they were in motion in the yard of the Bolton Depot, on the Northern Central Railroad, when he missed his footing and fell to the ground, and before he could escape was run over by one of the trucks, fracturing his skull in a horrible manner. The services of Drs. Greentree and Maris were obtained, but nothing could be done to alleviate his sufferings and he expired in about two hours afterwards.</h3>
+		</div>
+	</div>
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+
+	<div id="news3-img" class="col-md-12"><center><img src="img/accident3.png"></center></div>
+
+	<div id="content-row4">
+		<div id="blank" class="col-md-3"></div>
+		<div id="news3" class="col-md-6">
+			<h4><b>Run Away</h4></b>
+			<h3>About 12 o&#8217;clock yesterday a horse belonging to Mr. Samuel Valiant and attached to an Express wagon, took fright and ran down Baltimore Street, and when near North Street, came violently in contact with a horse and buggy, belonging to Mr. Scahffer, causing serious damage to the buggy, and breaking the axle tree and front portion of the Express wagon. One of the wheels of the Express wagon came off as Mr. Valant was driving past the Museum, causing the horse to rapidly increase his speed which resulted in the accident.</h3>
+		</div>
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+
+		<div id="news4-img" class="col-md-12"><center><img src="img/accident4.png"></center></div>
+
+		<div id="blank" class="col-md-3"></div>
+		<div id="news4" class="col-md-6">
+			<h4><b>Accident</h4></b>
+			<h3>A young man named Louis Williams, who resides on West Fayette Street, met with a painful accident a day or two since while firing at a target in the woods adjoining the House of Refuge. He had loaded a pistol with which he had been firing, and fearing the charge was too heavy, he attempted to draw it out, but not suceeding he fired it, and in doing so the barrel burst, horribly lacerating his right hand.</h3>
+		</div>
+	</div>
+
+<div id="blank1" class="col-md-2"></div><div id="blank2" class="col-md-8"></div><div id="blank1" class="col-md-2"></div>
+
+	<div id="arrests-title" class="col-md-12">
+		<h3><mark>Arrests</mark></h3>
+	</div>
+
+	<div id="blank" class="col-md-3"></div>
+
+	<div id="arrests" class="col-md-6">
+		<ul type="square">
+		<li><h2><b>John Carney and Nicholas Pfifer, assault with intent to kill</b></h2><h3>John Carney and Nicholas Pfifer were arraigned before the Mayor yesterday morning on the charge of as assaulting with intent to kill John Mason.<p>John Mason, the party assailed, testified that he resides on the Falls Road near Mount Vernon factory, and was on his way home on Wednesday evening, and when near the city limits, he was met by three young men, who, with out any provocation whatever struck him with their fists and knocked him down, and then kicked and stamped him in the head and face. He succeeded in regaining his feet, and ran some distance down the road into his sister&#8217;s house, and succeeded in closing the door before the party who were pursuing him could reach the house; when they did arrive they demanded admittance, and upon being refused kicked the door with such force that two of the panels were broken in. After making serious threats they left, apparently satisfied with having defaced the premises. Witness thinks they were all drunk. He could recognise two of them, Cardney and Pfifer, but could not tell who the other man was.<p>Temperance Smith, a sister of Mason&#8217;s, testified to the party having broken the door, but did not see the assault; did not see them have any weapons.	Officers Handy and Brooks were examined and testified that they found the party on the Falls road near the city limits, and upon their attempting to arrest them they were unable to detain but two or them, the other making good his escape. The Mayor imposed the usual fine of 66 cts. and costs for drunkeness, and committed them both to jail in default of $500 bail to answer at Court. It is alleged by persons residing in the neighborhood, that the same party made an attack upon a young man named Chafman and another man whose name is unknown, and beat them very severely.
+		</li></h3>
+
+		<li><h2><b>Jacob Michael, assault with threat to kill</h2></b><h3>Jacob Michael was arrested by officer Caulk, charged | with assaulting and threatening to kill Elizabeth Merchel. He was committed to jail for court by Justice Boyd.
+		</li></h3>
+
+		<li><h2><b>William Burgenham, riotous conduct</h2></b><h3>William Burgenham was arrested yesterday afternoon by officer Harney, charged with riotous conduct in the house of Mrs. Hayes, on Dallis street, near Canton Avenue. He was taken before Justice Griffin, and while in the magistrate&#8217;s office threatened to whip the officer who arrested him, swearing that he was a &#8220;Rough Skin,&#8221; and that he would do as he pleased. The Justice committed him to jail.
+		</h3></li>
+
+		<li><h2><b>Geo. Joseph, battery</b></h2><h3>Geo. Joseph was arrested yesterday afternoon charged with beating his wife. He awaits an examination at the Eastern district police station.</h3></li>
+
+		<li><h2><b>Augustus Grier, cowhiding</b></h2><h3>August Grier was arrested yesterday afternoon by officer Graves, charged with cowhiding a boy named Anthony Adorcan. Justice Wheat held him for a further hearing.</h3></li>
+	</ul></div>
+
+
+<div id="blank1" class="col-md-2"></div><div id="blank2" class="col-md-8"></div><div id="blank1" class="col-md-2"></div>	
+
+	<div id="news-title" class="col-md-12">
+		<h3><mark>Local News</mark></h3>
+	</div>
+
+<!--horse-->
+
+	<div id="blank" class="col-md-1"></div>
+
+	<div id="news5-img" class="col-md-5">
+		<img src="img/horse.png">
+	</div>
+
+	<div id="news5-text" class="col-md-5">
+		<h4><b>Walked In The Falls</b></h4><h3>Yesterday about eleven o&#8217;clock a blind horse, which had been left standing in a dray on West Lombard Street near the bridge, during a short absence of the driver, walked into the falls at the side of the bridge, carrying the dray with him. The wall at this point is about ten feet high, and although falling that distance the animal was not seriously injured.</h3>
+	</div>
+
+	<div id="blank" class="col-md-1"></div>
+
+<div id="divider" class="col-md-12">
+	<center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+<!--thief-->
+
+	<div id="blank" class="col-md-1"></div>
+
+	<div id="news6-img" class="col-md-5">
+		<img src="img/thief.png">
+	</div>
+
+	<div id="news6-text" class="col-md-5">
+		<h4><b>A Beggar Thief</h4></b> <h3>On Wednesday evening at dark, a beggar called at the house of Mrs. Hayes, on Broadway, and asked the servant girl who came to the door for alms. The servant left the beggar in the hall while she went to inform her mistress of his request, and during her absence he stole a marble clock from off the mantle-piece and left.</h3>
+	</div>
+
+	<div id="blank" class="col-md-1"></div>
+
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+<!--woman-->
+
+	<div id="blank" class="col-md-1"></div>
+	
+	<div id="news7-img" class="col-md-5">
+		<img src="img/girl.png">
+	</div>
+
+	<div id="news7-text" class="col-md-5">
+		<h4><b>Fell in the Falls</h4></b> <h3>Yesterday morning a woman named Mrs. Brunner, while engaged in washing on the porch, at the rear of her house on Harrison Street, lost her balance and fell into the Falls. She was rescued by some neighbors.</h3>
+	</div>
+
+	<div id="blank" class="col-md-1"></div>
+
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+<!--gas-->
+
+	<div id="blank" class="col-md-1"></div>
+
+	<div id="news8-img" class="col-md-5">
+		<img src="img/lamp.png">
+	</div>
+
+	<div id="news8-text" class="col-md-5">
+		<h4><b>Extension of Gas Pipes</h4></b> <h3>Gas pipes have just been laid out Chew Street to Bond, and the citizens of what is known as Swampoodle will now be enabled to light their residences with gas.</h3>
+	</div>
+
+	<div id="blank" class="col-md-1"></div>
+
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+<!--taxes-->
+
+	<div id="blank" class="col-md-1"></div>
+
+	<div id="news9-img" class="col-md-5">
+		<img src="img/taxes.png">
+	</div>
+
+	<div id="news9-text" class="col-md-5">
+		<h4><b>Taxes</h4></b> <h3>All taxes of this year which are not paid to-day will be placed in the hands of collectors, and bailiff&#8217;s fees will be added.</h3>
+	</div>
+
+	<div id="blank" class="col-md-1"></div>
+
+
+<div id="divider" class="col-md-12">
+    <center><h4 style="color: #ff4500;">. . . . .</h4></center></br>
+</div>
+<!--bread-->
+
+	<div id="blank" class="col-md-1"></div>
+
+	<div id="news10-img" class="col-md-5">
+		<img src="img/bread.png">	
+	</div>
+
+	<div id="news10-text" class="col-md-5">
+		<h4><b>Charity</h4></b> <h3>The Sons of Malta will distribute on New Year&#8217;s day five thousand loaves of bread &mdash; the distribution will take place at Carroll Hall.</h3>
+	</div>
+
+	<div id="blank" class="col-md-1"></div>
+
+	<div id="footer" class="col-md-12">
+	</div>
+</body>
