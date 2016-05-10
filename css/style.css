@@ -57,6 +57,10 @@ body{
   padding-bottom: 20px;
 }
 
+#menu{
+  float: right;
+}
+
 #menu a {
 	color: #000000;
 }
