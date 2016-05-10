@@ -56,16 +56,17 @@ mark{
   padding-top: 20px;
 }
 
+#menu{
+  float: right;
+  padding-right: 30px;
+}
+
 #menu a {
   color: #000000;
 }
 
 #menu a:active{
   color: #000000;
-}
-
-#menu a:hover{
-  color: #FF4500;
 }
 
 #menu a:visited{
