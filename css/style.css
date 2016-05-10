@@ -59,7 +59,6 @@ body{
 
 #menu{
   float: right;
-  padding-right: 30px;
 }
 
 #menu a {
@@ -69,6 +68,10 @@ body{
 #menu a:active{
 	color: #000000;
 }
+
+/*#menu a:hover{
+  color: #2C24FF;
+}*/
 
 #menu a:visited{
 	color: #000000;
